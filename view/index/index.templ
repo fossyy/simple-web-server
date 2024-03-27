@@ -1,0 +1,94 @@
+package indexView
+
+templ headerComponent(title string) {
+	<head>
+	    <title>{ title }</title>
+        <link href="/public/output.css" rel="stylesheet"/>
+	</head>
+}
+
+templ content() {
+    <div class="flex justify-center items-center dark items-center min-h-screen p-4 sm:p-6 bg-gray-900">
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-lg dark" data-v0-t="card">
+           <div class="p-6">
+              <div class="grid gap-2">
+                 <label
+                    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-gray-300"
+                    for="url"
+                    >
+                 Paste your link here
+                 </label>
+                 <div class="grid w-full items-center gap-2">
+                    <input
+                       type="url"
+                       class="flex h-10 w-full border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 rounded-lg dark:bg-gray-800 dark:text-gray-300"
+                       id="url"
+                       placeholder="Enter URL"
+                       />
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 rounded-lg dark:bg-gray-800 dark:text-gray-300">
+                    Shorten
+                    </button>
+                    <div class="flex-initial items-center flex justify-center px-5 py-2.5  grid grid-cols-3 gap-4 content-center">
+                        <a href="/user" class="inline-flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">User Page</a>
+                        <a href="/logout" class="inline-flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Out</a>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="border-t border-gray-200 dark:border-gray-800">
+              <div class="relative w-full overflow-auto">
+                 <table class="w-full caption-bottom text-sm dark:text-gray-300">
+                    <thead class="[&amp;_tr]:border-b">
+                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                             Short Link
+                          </th>
+                          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                             Original Link
+                          </th>
+                          <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                             Actions
+                          </th>
+                       </tr>
+                    </thead>
+                    <tbody class="[&amp;_tr:last-child]:border-0 dark:text-gray-300">
+                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">short.link/abc123</td>
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                             https://www.example.com/very-long-url-that-needs-shortening
+                          </td>
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                             <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 dark:bg-gray-800 dark:text-gray-300">
+                             Copy
+                             </button>
+                             <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 dark:bg-gray-800 dark:text-gray-300">
+                             Edit
+                             </button>
+                          </td>
+                       </tr>
+                       <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">short.link/def456</td>
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                             https://www.example.com/another-long-url-to-shorten
+                          </td>
+                          <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                             <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 dark:bg-gray-800 dark:text-gray-300">
+                             Copy
+                             </button>
+                             <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 dark:bg-gray-800 dark:text-gray-300">
+                             Edit
+                             </button>
+                          </td>
+                       </tr>
+                    </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+    </div>
+}
+
+templ Main(title string) {
+    @headerComponent(title)
+	@content()
+}
